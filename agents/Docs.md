@@ -29,7 +29,7 @@ Tu dominio:
 * `docs/cuestionario/` — respuestas teóricas por parte (`parte1.md`, `parte2.md`,
   `parte3.md`, `parte4.md`, `parte6.md`).
 * `docs/diagramas/` — `arquitectura.mmd`, `clases.mmd`, `despliegue.mmd` (Mermaid).
-* `docs/evidencias/` — capturas de Docker Hub y del pipeline.
+* `docs/evidencias/` — capturas de Docker Hub, del pipeline y de Swagger.
 * `agents/` — documentación de los roles de agente (este mismo directorio).
 
 ---

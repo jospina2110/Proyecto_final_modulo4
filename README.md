@@ -36,7 +36,7 @@ Proyecto_final_pool/
 ├── docs/
 │   ├── cuestionario/         # Preguntas teóricas por parte
 │   ├── diagramas/            # Diagramas Mermaid (clases, arquitectura, despliegue)
-│   └── evidencias/           # Capturas de Docker Hub y del pipeline
+│   └── evidencias/           # Capturas de Docker Hub, del pipeline y de Swagger
 ├── agents/                   # Agentes portables: roles y responsabilidades
 ├── .opencode/                # Agentes operativos y comandos del entorno de agentes
 ├── opencode.json             # Configuración de opencode: agente por defecto e instrucciones
