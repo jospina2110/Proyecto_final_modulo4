@@ -1,0 +1,19 @@
+flowchart TB
+    usuario[Usuario]
+
+    subgraph dockerhub[Docker Hub]
+        imagen_backend[medical-appointments-backend]
+        imagen_frontend[medical-appointments-frontend]
+    end
+
+    subgraph compose["Docker Compose · red app_network"]
+        frontend["frontend (nginx)<br/>80 interno · publica 8080:80"]
+        backend["backend (FastAPI)<br/>8000 solo interno"]
+        mongo[("mongo<br/>27017 · volumen mongo_data")]
+    end
+
+    usuario -->|"localhost:8080"| frontend
+    frontend -->|"proxy /api, /docs, /openapi.json"| backend
+    backend -->|"mongodb://mongo:27017"| mongo
+    imagen_backend -.->|"build / pull"| backend
+    imagen_frontend -.->|"build / pull"| frontend

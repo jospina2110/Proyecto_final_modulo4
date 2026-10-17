@@ -1,0 +1,22 @@
+flowchart LR
+    cliente[Cliente / Navegador]
+
+    subgraph frontend["Frontend (nginx)"]
+        nginx["nginx<br/>estáticos + proxy /api, /docs"]
+    end
+
+    subgraph backend[Backend FastAPI]
+        routes[Routes<br/>capa HTTP]
+        services[Services<br/>reglas de negocio]
+        repositories["Repositories<br/>acceso a datos vía Beanie/Motor"]
+        models[Models Beanie]
+    end
+
+    mongo[(MongoDB)]
+
+    cliente -->|"HTTP :8080"| nginx
+    nginx -->|"proxy /api → backend:8000"| routes
+    routes --> services
+    services --> repositories
+    repositories --> models
+    models --> mongo

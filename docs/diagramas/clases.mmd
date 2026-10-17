@@ -1,0 +1,38 @@
+classDiagram
+    class Patient {
+        +ObjectId id
+        +str full_name
+        +str document_id
+        +str email
+        +str phone
+    }
+
+    class Doctor {
+        +ObjectId id
+        +str full_name
+        +str specialty
+        +str email
+    }
+
+    class Appointment {
+        +ObjectId id
+        +ObjectId patient_id
+        +ObjectId doctor_id
+        +datetime scheduled_at
+        +datetime ends_at
+        +int duration_minutes
+        +str reason
+        +AppointmentStatus status
+    }
+
+    class AppointmentStatus {
+        <<enumeration>>
+        PENDING
+        CONFIRMED
+        COMPLETED
+        CANCELLED
+    }
+
+    Patient "1" --> "0..*" Appointment : agenda
+    Doctor "1" --> "0..*" Appointment : atiende
+    Appointment --> AppointmentStatus : tiene
