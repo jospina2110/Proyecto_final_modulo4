@@ -14,7 +14,12 @@ async def lifespan(app: FastAPI):
     yield
 
 
-app = FastAPI(title=settings.app_name, version="1.0.0", lifespan=lifespan)
+app = FastAPI(
+    title=settings.app_name,
+    version="1.0.0",
+    lifespan=lifespan,
+    servers=[{"url": "/api", "description": "Proxy nginx del frontend"}],
+)
 register_exception_handlers(app)
 app.include_router(patients.router)
 app.include_router(doctors.router)
